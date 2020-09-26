@@ -7,19 +7,13 @@ namespace EduLabs.Input
   [Serializable]
   public struct PlayerInputSettings
   {
-    // public InputAction moveStick;
+    public InputAction moveStick;
 
-    // public InputAction moveX;
+    public InputAction cameraYaw;
 
-    // public InputAction moveY;
+    public InputAction cameraPitch;
 
-    // public InputAction cameraStick;
-
-    // public InputAction cameraYaw;
-
-    // public InputAction cameraPitch;
-
-    // public InputAction exitAction;
+    public InputAction exitAction;
   }
 
 }

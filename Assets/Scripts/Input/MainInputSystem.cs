@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
 using Unity.Entities;
 using Unity.Jobs;
@@ -8,9 +9,10 @@ namespace EduLabs.Input
 
   [AlwaysSynchronizeSystem]
   [RequiresEntityConversion]
-  [RequireComponent(typeof(PlayerInputData), typeof(AnalogInputData), typeof(ToolsInputData))]
   public class MainInputSystem : JobComponentSystem
   {
+
+    private InputSettings input;
 
     protected override void OnCreate()
     {
@@ -36,65 +38,67 @@ namespace EduLabs.Input
         toolsData.grabMode = false;
         toolsData.selectMode = false;
       }).Run();
+
+      // Cargo la configuración de controles
+      Addressables.LoadAssetAsync<InputSettings>("Assets/Settings/InputSettings.asset").Completed +=
+        handle => input = handle.Result;
     }
 
     protected override JobHandle OnUpdate(JobHandle inputDeps)
     {
-      // InputSystem.Update();
+      InputSystem.Update();
+      if (input == null) return default;
 
-      if (InputManager.instance == null) return default;
-      InputManager input = InputManager.instance;
+      // Player Input
       PlayerInputSettings playerSettings = input.player;
-      AnalogInputSettings analogSettings = input.analog;
-      ToolsInputSettings toolsSettings = input.tools;
-      
+      Vector2 playerMovement = playerSettings.moveStick.ReadValue<Vector2>();
+      Vector2 cameraMovement = new Vector2(
+        playerSettings.cameraYaw.ReadValue<float>(),
+        playerSettings.cameraPitch.ReadValue<float>());
+      bool exitPressed = playerSettings.exitAction.triggered;
+
       JobHandle playerHandle = Entities.ForEach(
-        (ref PlayerInputData data) =>
+        (ref PlayerInputData playerData) =>
       {
-
-        // data.playerMovement = playerSettings.moveStick.ReadValue<Vector2>();
-        // data.playerMovement.x += playerSettings.moveX.ReadValue<float>();
-        // data.playerMovement.y += playerSettings.moveY.ReadValue<float>();
-
-        // data.cameraMovement = playerSettings.cameraStick.ReadValue<Vector2>();
-        // data.cameraMovement.x += playerSettings.cameraYaw.ReadValue<float>();
-        // data.cameraMovement.y += playerSettings.cameraPitch.ReadValue<float>();
-
-        // data.exitPressed = playerSettings.exitAction.ReadValue<bool>();
+        playerData.playerMovement = playerMovement;
+        playerData.cameraMovement = cameraMovement;
+        playerData.exitPressed = exitPressed;
       }).Schedule(inputDeps);
+
+
+      // Analog Input
+      AnalogInputSettings analogSettings = input.analog;
+      bool analogUp = analogSettings.up.triggered;
+      bool analogDown = analogSettings.down.triggered;
+      bool analogLeft = analogSettings.left.triggered;
+      bool analogRight = analogSettings.right.triggered;
 
       JobHandle analogHandle = Entities.ForEach(
         (ref AnalogInputData data) =>
       {
-
-        bool wasHoldingUp = data.holdingUp;
-        bool wasHoldingDown = data.holdingDown;
-        bool wasHoldingLeft = data.holdingLeft;
-        bool wasHoldingRight = data.holdingRight;
-
-        // data.holdingUp = analogSettings.up.ReadValue<bool>();
-        // data.holdingDown = analogSettings.down.ReadValue<bool>();
-        // data.holdingLeft = analogSettings.left.ReadValue<bool>();
-        // data.holdingRight = analogSettings.right.ReadValue<bool>();
-
-        if (!(data.holdingUp || data.holdingDown || data.holdingLeft || data.holdingRight))
+        if (!(analogUp || analogDown || analogLeft || analogRight))
           data.direction = AnalogType.NONE;
-        else if (!wasHoldingUp && data.holdingUp)
+        else if (!data.holdingUp && analogUp)
           data.direction = AnalogType.UP;
-        else if (!wasHoldingDown && data.holdingDown)
+        else if (!data.holdingDown && analogDown)
           data.direction = AnalogType.DOWN;
-        else if (!wasHoldingLeft && data.holdingLeft)
+        else if (!data.holdingLeft && analogLeft)
           data.direction = AnalogType.LEFT;
-        else if (!wasHoldingRight && data.holdingRight)
+        else if (!data.holdingRight && analogRight)
           data.direction = AnalogType.RIGHT;
       }).Schedule(inputDeps);
+
+
+      // Tools Input
+      ToolsInputSettings toolsSettings = input.tools;
+      bool grabMode = toolsSettings.grabTool.triggered;
+      bool selectMode = toolsSettings.selectTool.triggered;
 
       JobHandle toolsHandle = Entities.ForEach(
         (ref ToolsInputData data) =>
       {
-
-        // data.grabMode = toolsSettings.grabTool.ReadValue<bool>();
-        // data.selectMode = toolsSettings.selectTool.ReadValue<bool>();
+        data.grabMode = grabMode;
+        data.selectMode = selectMode;
       }).Schedule(inputDeps);
 
       return JobHandle.CombineDependencies(playerHandle, analogHandle, toolsHandle);

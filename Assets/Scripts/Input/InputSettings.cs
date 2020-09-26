@@ -3,7 +3,6 @@ using UnityEngine;
 namespace EduLabs.Input
 {
 
-  // [RequireComponent(typeof(MainInputSystem))]
   [CreateAssetMenu(fileName = "InputSettings", menuName="EduLabs/Settings/Input", order = 1)]
   public class InputSettings : ScriptableObject
   {

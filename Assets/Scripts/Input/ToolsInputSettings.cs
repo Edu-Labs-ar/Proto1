@@ -8,9 +8,9 @@ namespace EduLabs.Input
   public struct ToolsInputSettings
   {
 
-    // public InputAction grabTool;
+    public InputAction grabTool;
 
-    // public InputAction selectTool;
+    public InputAction selectTool;
   }
 
 }

@@ -3,7 +3,7 @@ using Unity.Entities;
 
 namespace EduLabs.Input
 {
-
+  [GenerateAuthoringComponent]
   public struct PlayerInputData : IComponentData
   {
 

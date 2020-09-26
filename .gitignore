@@ -1,7 +1,11 @@
 # Hecho a mano, así que seguramente me esté comiendo varios ignore
 
-Logs
 obj
-*.csproj
+Logs
 Library
+Temp
+
 **/*.meta
+
+*.csproj
+*.sln

@@ -2,6 +2,7 @@
 
 namespace EduLabs.Input
 {
+  [GenerateAuthoringComponent]
   public struct AnalogInputData : IComponentData
   {
     public AnalogType direction;

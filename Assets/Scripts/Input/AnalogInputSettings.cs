@@ -7,13 +7,13 @@ namespace EduLabs.Input
   [Serializable]
   public struct AnalogInputSettings
   {
-    // public InputAction up;
+    public InputAction up;
 
-    // public InputAction down;
+    public InputAction down;
 
-    // public InputAction left;
+    public InputAction left;
 
-    // public InputAction right;
+    public InputAction right;
 
   }
 

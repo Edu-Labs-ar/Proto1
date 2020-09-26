@@ -2,7 +2,7 @@
 
 namespace EduLabs.Input
 {
-
+  [GenerateAuthoringComponent]
   public struct ToolsInputData : IComponentData
   {
 
