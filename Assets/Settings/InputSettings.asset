@@ -1,0 +1,273 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af194515c48d1764abb0da1a478a7ac2, type: 3}
+  m_Name: InputSettings
+  m_EditorClassIdentifier: 
+  player:
+    moveStick:
+      m_Name: Move Stick
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 286fc9a6-edd7-48f4-bbde-9abb6198e33c
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: Keyboard 1
+        m_Id: 1b1b3c24-83a6-4d31-9627-6b835044cad8
+        m_Path: 2DVector
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Move Stick
+        m_Flags: 4
+      - m_Name: up
+        m_Id: 57f4902f-b36a-4d84-89c4-66587f06663c
+        m_Path: <Keyboard>/w
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Move Stick
+        m_Flags: 8
+      - m_Name: down
+        m_Id: 66381a53-e05d-4be9-8bca-11b0ec78e7a8
+        m_Path: <Keyboard>/s
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Move Stick
+        m_Flags: 8
+      - m_Name: left
+        m_Id: fc8fdd12-c1f0-48c5-8068-beabb584ca9d
+        m_Path: <Keyboard>/a
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Move Stick
+        m_Flags: 8
+      - m_Name: right
+        m_Id: 40b8ad92-dc32-4422-87a4-17944ff5aa0e
+        m_Path: <Keyboard>/d
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Move Stick
+        m_Flags: 8
+      - m_Name: 
+        m_Id: 561fd4c4-4123-4360-bc92-db419f22533d
+        m_Path: <Joystick>/stick
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Move Stick
+        m_Flags: 0
+    cameraYaw:
+      m_Name: Camera Yaw
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: f9ad0c69-834b-488c-b98e-d131e35b42b2
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: bb644915-d1e5-415f-b79d-fa2d3100ce28
+        m_Path: <HID::Microntek              USB Joystick          >/rz
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Camera Yaw
+        m_Flags: 0
+    cameraPitch:
+      m_Name: Camera Pitch
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 390f8176-fa71-4ea7-8d3a-f76a7e955085
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 8527fc07-5563-4352-b282-9e6012f142dc
+        m_Path: <HID::Microntek              USB Joystick          >/z
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Camera Pitch
+        m_Flags: 0
+    exitAction:
+      m_Name: Exit
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 1273f871-3a90-4f10-a612-c98ecaa62989
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: da2b79d6-c563-4b3b-80e3-9ba00209a942
+        m_Path: <Joystick>/trigger
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Exit
+        m_Flags: 0
+      - m_Name: 
+        m_Id: c00351a2-6d40-4d30-a8f9-14de79ed3bb4
+        m_Path: <Keyboard>/escape
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Exit
+        m_Flags: 0
+  analog:
+    up:
+      m_Name: Up
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 1c65244c-b58b-4528-a09f-b70fb2431597
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 8d5f1e22-a647-4ddd-a57c-a6bf1c501e50
+        m_Path: <HID::Microntek              USB Joystick          >/hat/up
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Up
+        m_Flags: 0
+      - m_Name: 
+        m_Id: 17b301c5-8b6b-4a66-8c99-0d3074cf89bc
+        m_Path: <Keyboard>/r
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Up
+        m_Flags: 0
+    down:
+      m_Name: Down
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 3fc2681d-b72e-48f8-a6b4-c9b945304b72
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 05fcee30-f208-4c02-8b94-8dc38c61ec3e
+        m_Path: <HID::Microntek              USB Joystick          >/hat/down
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Down
+        m_Flags: 0
+      - m_Name: 
+        m_Id: 4bd653eb-b951-4ebf-8b5b-4556299e22c7
+        m_Path: <Keyboard>/f
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Down
+        m_Flags: 0
+    left:
+      m_Name: Left
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: d5a8a3c3-d9a6-4de3-a60d-10978d79ce14
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 798ab6cd-7853-4b70-9fe7-f2938b33a55c
+        m_Path: <HID::Microntek              USB Joystick          >/hat/left
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Left
+        m_Flags: 0
+      - m_Name: 
+        m_Id: 92dd79f1-e838-4374-9e19-64b3f96bafde
+        m_Path: <Keyboard>/q
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Left
+        m_Flags: 0
+    right:
+      m_Name: Right
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 1971b36d-412a-4ca0-8d0f-15e46fb9e6b1
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 31a66d35-c79b-4ef4-bb5f-f72d6442805e
+        m_Path: <HID::Microntek              USB Joystick          >/hat/right
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Right
+        m_Flags: 0
+      - m_Name: 
+        m_Id: 0f0f4fcb-b81d-47d6-9285-b85546da01a5
+        m_Path: <Keyboard>/e
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Right
+        m_Flags: 0
+  tools:
+    grabTool:
+      m_Name: Grab Tool
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: 1f8490fa-142c-4eaf-9db8-50c56b09f593
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: dec7c858-8a08-42b1-85f9-9d33df2e6a3b
+        m_Path: <HID::Microntek              USB Joystick          >/button6
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Grab Tool
+        m_Flags: 0
+      - m_Name: 
+        m_Id: bb44f1ec-83f4-4658-a94a-806165a8de8d
+        m_Path: <Keyboard>/leftShift
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Grab Tool
+        m_Flags: 0
+    selectTool:
+      m_Name: Select Tool
+      m_Type: 1
+      m_ExpectedControlType: Button
+      m_Id: c04ad369-4875-4bbe-89bf-242983a98235
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: f0e0b005-f79c-4e6e-a98e-30aa302ef72d
+        m_Path: <Keyboard>/space
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Select Tool
+        m_Flags: 0
+      - m_Name: 
+        m_Id: fbaa77f1-66f3-4a04-a52a-546d13cce221
+        m_Path: <HID::Microntek              USB Joystick          >/button5
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Select Tool
+        m_Flags: 0
