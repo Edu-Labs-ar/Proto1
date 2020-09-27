@@ -16,9 +16,9 @@ MonoBehaviour:
     moveStick:
       m_Name: Move Stick
       m_Type: 0
-      m_ExpectedControlType: 
+      m_ExpectedControlType: Stick
       m_Id: 286fc9a6-edd7-48f4-bbde-9abb6198e33c
-      m_Processors: 
+      m_Processors: NormalizeVector2
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: Keyboard 1
@@ -72,14 +72,14 @@ MonoBehaviour:
     cameraYaw:
       m_Name: Camera Yaw
       m_Type: 0
-      m_ExpectedControlType: 
+      m_ExpectedControlType: Axis
       m_Id: f9ad0c69-834b-488c-b98e-d131e35b42b2
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
         m_Id: bb644915-d1e5-415f-b79d-fa2d3100ce28
-        m_Path: <HID::Microntek              USB Joystick          >/rz
+        m_Path: <HID::Microntek              USB Joystick          >/z
         m_Interactions: 
         m_Processors: 
         m_Groups: 
@@ -88,16 +88,16 @@ MonoBehaviour:
     cameraPitch:
       m_Name: Camera Pitch
       m_Type: 0
-      m_ExpectedControlType: 
+      m_ExpectedControlType: Axis
       m_Id: 390f8176-fa71-4ea7-8d3a-f76a7e955085
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
         m_Id: 8527fc07-5563-4352-b282-9e6012f142dc
-        m_Path: <HID::Microntek              USB Joystick          >/z
+        m_Path: <HID::Microntek              USB Joystick          >/rz
         m_Interactions: 
-        m_Processors: 
+        m_Processors: Invert
         m_Groups: 
         m_Action: Camera Pitch
         m_Flags: 0

@@ -54,8 +54,8 @@ namespace EduLabs.Input
       Vector2 playerMovement = playerSettings.moveStick.ReadValue<Vector2>();
       Vector2 cameraMovement = new Vector2(
         playerSettings.cameraYaw.ReadValue<float>(),
-        playerSettings.cameraPitch.ReadValue<float>());
-      bool exitPressed = playerSettings.exitAction.triggered;
+        playerSettings.cameraPitch.ReadValue<float>()).normalized;
+      bool exitPressed = playerSettings.exitAction.ReadValue<float>() != 0;
 
       JobHandle playerHandle = Entities.ForEach(
         (ref PlayerInputData playerData) =>
@@ -68,10 +68,10 @@ namespace EduLabs.Input
 
       // Analog Input
       AnalogInputSettings analogSettings = input.analog;
-      bool analogUp = analogSettings.up.triggered;
-      bool analogDown = analogSettings.down.triggered;
-      bool analogLeft = analogSettings.left.triggered;
-      bool analogRight = analogSettings.right.triggered;
+      bool analogUp = analogSettings.up.ReadValue<int>() != 0;
+      bool analogDown = analogSettings.down.ReadValue<int>() != 0;
+      bool analogLeft = analogSettings.left.ReadValue<int>() != 0;
+      bool analogRight = analogSettings.right.ReadValue<int>() != 0;
 
       JobHandle analogHandle = Entities.ForEach(
         (ref AnalogInputData data) =>
@@ -91,8 +91,8 @@ namespace EduLabs.Input
 
       // Tools Input
       ToolsInputSettings toolsSettings = input.tools;
-      bool grabMode = toolsSettings.grabTool.triggered;
-      bool selectMode = toolsSettings.selectTool.triggered;
+      bool grabMode = toolsSettings.grabTool.ReadValue<int>() != 0;
+      bool selectMode = toolsSettings.selectTool.ReadValue<int>() != 0;
 
       JobHandle toolsHandle = Entities.ForEach(
         (ref ToolsInputData data) =>
