@@ -5,7 +5,5 @@ Logs
 Library
 Temp
 
-**/*.meta
-
 *.csproj
 *.sln
