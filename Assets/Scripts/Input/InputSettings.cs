@@ -1,11 +1,60 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace EduLabs.Input
 {
 
-  [CreateAssetMenu(fileName = "InputSettings", menuName="EduLabs/Settings/Input", order = 1)]
+  [Serializable]
+  public struct AnalogInputSettings
+  {
+    public InputAction up;
+
+    public InputAction down;
+
+    public InputAction left;
+
+    public InputAction right;
+
+  }
+
+
+  [Serializable]
+  public struct PlayerInputSettings
+  {
+    [Range(.1f, 3f)]
+    public float sensitivity;
+
+    public InputAction moveStick;
+
+    public InputAction cameraYaw;
+
+    public InputAction cameraPitch;
+
+    public InputAction exitAction;
+  }
+
+
+  [Serializable]
+  public struct ToolsInputSettings
+  {
+
+    public InputAction grabTool;
+
+    public InputAction selectTool;
+  }
+
+
+  [CreateAssetMenu(fileName = "InputSettings", menuName = "EduLabs/Settings/Input", order = 1)]
   public class InputSettings : ScriptableObject
   {
+
+    private static InputSettings _instance;
+    public static InputSettings Instance
+    {
+      get { return _instance; }
+    }
+
 
     public PlayerInputSettings player;
 
@@ -28,6 +77,8 @@ namespace EduLabs.Input
 
       tools.grabTool.Enable();
       tools.selectTool.Enable();
+
+      _instance = this;
     }
 
 
