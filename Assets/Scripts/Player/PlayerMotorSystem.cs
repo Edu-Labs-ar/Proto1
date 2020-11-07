@@ -3,7 +3,6 @@ using Unity.Entities;
 using Unity.Jobs;
 using Unity.Physics;
 
-using EduLabs.Input;
 using EduLabs.Controllers;
 
 namespace EduLabs.Player

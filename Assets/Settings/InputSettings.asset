@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InputSettings
   m_EditorClassIdentifier: 
   player:
-    sensitivity: 1
+    sensitivity: 0.2
     moveStick:
       m_Name: Move Stick
       m_Type: 0
