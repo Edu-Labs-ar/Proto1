@@ -8,7 +8,7 @@ using Unity.Mathematics;
 namespace EduLabs.Utility
 {
 
-  public class InteractuableSystem : JobComponentSystem
+  public class InteractableSystem : JobComponentSystem
   {
 
     EntityQuery playerQuery;
@@ -21,7 +21,7 @@ namespace EduLabs.Utility
         ComponentType.ReadOnly<Rotation>());
 
       interactablesQuery = GetEntityQuery(
-        ComponentType.ReadOnly<InteractuableTag>(),
+        ComponentType.ReadOnly<InteractableTag>(),
         ComponentType.ReadOnly<Translation>());
     }
 

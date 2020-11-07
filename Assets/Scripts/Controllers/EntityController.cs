@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using Unity.Entities;
-using Unity.Mathematics;
 using Unity.Physics;
 
-using EduLabs.Input;
 using EduLabs.Player;
 
 namespace EduLabs.Controllers
