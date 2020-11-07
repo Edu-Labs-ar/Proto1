@@ -90,6 +90,8 @@ namespace EduLabs.Utility
       .WithDeallocateOnJobCompletion(apparentDistances)
       .Schedule(apparentDistanceHandle);
 
+      players.Dispose();
+
       return sortHandle;
     }
 
